@@ -101,10 +101,10 @@ public class teleOp extends LinearOpMode {
             }
             //Gamepad 1 left joystick x strafe
             while ((Math.abs(gamepad1.left_stick_x) > 0.1 || Math.abs(gamepad1.left_stick_y) > 0.1 || Math.abs(gamepad1.right_stick_x) > 0.1) && !gamepad1.left_bumper && opModeIsActive()) {
-                driveBackLeft.setPower(gamepad1.left_stick_y * 0.6 + gamepad1.left_stick_x * 0.6 + gamepad1.right_stick_x * -0.6);
-                driveFrontLeft.setPower(gamepad1.left_stick_y * 0.6 + gamepad1.left_stick_x * -0.6 + gamepad1.right_stick_x * -0.6);
-                driveFrontRight.setPower(gamepad1.left_stick_y * 0.6 + gamepad1.left_stick_x * 0.6 + gamepad1.right_stick_x * 0.6);
-                driveBackRight.setPower(gamepad1.left_stick_y * 0.6 + gamepad1.left_stick_x * -0.6 + gamepad1.right_stick_x * 0.6);
+                driveBackLeft.setPower(gamepad1.left_stick_y * 0.8 + gamepad1.left_stick_x * 0.8 + gamepad1.right_stick_x * -0.8);
+                driveFrontLeft.setPower(gamepad1.left_stick_y * 0.8 + gamepad1.left_stick_x * -0.8 + gamepad1.right_stick_x * -0.8);
+                driveFrontRight.setPower(gamepad1.left_stick_y * 0.8 + gamepad1.left_stick_x * 0.8 + gamepad1.right_stick_x * 0.8);
+                driveBackRight.setPower(gamepad1.left_stick_y * 0.8 + gamepad1.left_stick_x * -0.8 + gamepad1.right_stick_x * 0.8);
             }
 
             driveBackLeft.setPower(0);
@@ -136,8 +136,8 @@ public class teleOp extends LinearOpMode {
                 telemetry.addLine("DOWN");
                 telemetry.update();
             } else if (gamepad2.left_stick_y > 0 && opModeIsActive()) {
-                liftleft.setPower(gamepad2.left_stick_y * -0.85);
-                liftright.setPower(gamepad2.left_stick_y * -0.85);
+                liftleft.setPower(gamepad2.left_stick_y * -0.95);
+                liftright.setPower(gamepad2.left_stick_y * -0.95);
                 telemetry.addLine("UP");
                 telemetry.update();
             } else if (gamepad2.left_stick_y == 0 && opModeIsActive() && !limitSwitch.getState()) {
