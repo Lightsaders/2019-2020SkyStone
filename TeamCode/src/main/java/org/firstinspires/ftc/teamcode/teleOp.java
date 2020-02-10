@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.content.Context;
+
+import com.qualcomm.ftccommon.SoundPlayer;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -27,7 +30,9 @@ import java.util.concurrent.TimeUnit;
 @TeleOp(name = "TeleOp", group = "TeleOp")
 
 public class teleOp extends LinearOpMode {
+    String  sounds[] =  { "ss_wookie" };
 
+    boolean soundPlaying = false;
     private DcMotor driveFrontLeft;
     private DcMotor driveFrontRight;
     private DcMotor driveBackLeft;
@@ -79,6 +84,18 @@ public class teleOp extends LinearOpMode {
         limitSwitch.setMode(DigitalChannel.Mode.INPUT);
 
         toggle = 0.6;
+        // Variables for choosing from the available sounds
+        int     soundIndex      = 0;
+        int     soundID         = -1;
+        boolean was_dpad_up     = false;
+        boolean was_dpad_down   = false;
+
+        Context myApp = hardwareMap.appContext;
+
+        // create a sound parameter that holds the desired player parameters.
+        SoundPlayer.PlaySoundParams params = new SoundPlayer.PlaySoundParams();
+        params.loopControl = 0;
+        params.waitForNonLoopingSoundsToFinish = true;
 
         //waitForStart();
         while (!opModeIsActive() && !isStopRequested()) {
@@ -114,6 +131,7 @@ public class teleOp extends LinearOpMode {
 
             if (gamepad2.right_bumper && opModeIsActive()) {
                 clamp.setPosition(.35);
+
             }
             if (gamepad2.left_bumper && opModeIsActive()) {
                 clamp.setPosition(.75);
@@ -145,12 +163,56 @@ public class teleOp extends LinearOpMode {
                 liftleft.setPower(0);
                 telemetry.addLine("LIMIT SWITCH PRESSED");
                 telemetry.update();
-//                blinkinLedDriver.setPattern(RevBlinkinLedDriver.BlinkinPattern.GREEN);
+
             } else if (gamepad2.left_stick_y == 0 && opModeIsActive() && limitSwitch.getState()) {
                 liftright.setPower(-0.18);
                 liftleft.setPower(-0.18);
                 telemetry.addLine("HOLD");
                 telemetry.update();
+                if (gamepad2.left_stick_y == 0 && !soundPlaying) {
+
+                    // Determine Resource IDs for the sounds you want to play, and make sure it's valid.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                }
             }
             if (gamepad2.x && opModeIsActive()) {
                 leftFoundation.setPosition(1);
@@ -165,7 +227,7 @@ public class teleOp extends LinearOpMode {
             } else {
                 teamMarker.setPosition(0.5);
             }
-            if (gamepad2.y) {
+            if (gamepad2.y ) {
                 gamepad1.left_stick_y = 0;
                 gamepad1.right_stick_y = 0;
                 gamepad1.left_stick_x = 0;

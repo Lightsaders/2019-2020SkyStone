@@ -15,9 +15,12 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp(name = "Last_Year_Teleop", group = "TeleOp")
 public class Last_Year_TELEOP extends LinearOpMode{
     // List of available sound resources
-    String  sounds[] =  {"ss_alarm", "ss_bb8_down", "ss_bb8_up", "ss_darth_vader", "ss_fly_by",
-            "ss_mf_fail", "ss_laser", "ss_laser_burst", "ss_light_saber", "ss_light_saber_long", "ss_light_saber_short",
-            "ss_light_speed", "ss_mine", "ss_power_up", "ss_r2d2_up", "ss_roger_roger", "ss_siren", "ss_wookie" };
+//    String  sounds[] =  {"ss_alarm", "ss_bb8_down", "ss_bb8_up", "ss_darth_vader", "ss_fly_by",
+//            "ss_mf_fail", "ss_laser", "ss_laser_burst", "ss_light_saber", "ss_light_saber_long", "ss_light_saber_short",
+//            "ss_light_speed", "ss_mine", "ss_power_up", "ss_r2d2_up", "ss_roger_roger", "ss_siren", "ss_wookie" };
+
+    String  sounds[] =  { "ss_roger_roger" };
+
     boolean soundPlaying = false;
 
 
@@ -87,17 +90,9 @@ public class Last_Year_TELEOP extends LinearOpMode{
 
             //TODO make it not have to be held
 //
-            if (gamepad1.dpad_down && !was_dpad_down) {
-                // Go to next sound (with list wrap) and display it
-                soundIndex = (soundIndex + 1) % sounds.length;
-            }
 
-            if (gamepad1.dpad_up && !was_dpad_up) {
-                // Go to previous sound (with list wrap) and display it
-                soundIndex = (soundIndex + sounds.length - 1) % sounds.length;
-            }
             // Determine Resource IDs for the sounds you want to play, and make sure it's valid.
-            if (gamepad1.right_bumper && !soundPlaying) {
+            if (gamepad1.left_stick_y >0 && !soundPlaying) {
 
                 // Determine Resource IDs for the sounds you want to play, and make sure it's valid.
                 if ((soundID = myApp.getResources().getIdentifier(sounds[soundIndex], "raw", myApp.getPackageName())) != 0){
@@ -111,6 +106,7 @@ public class Last_Year_TELEOP extends LinearOpMode{
                                 public void run() {
                                     soundPlaying = false;
                                 }} );
+                    sleep(7000);
                 }
             }
             driveBackLeft.setPower(gamepad1.left_stick_y * toggle + gamepad1.left_stick_x *- toggle);

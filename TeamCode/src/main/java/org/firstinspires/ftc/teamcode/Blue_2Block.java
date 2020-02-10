@@ -45,9 +45,9 @@ public class Blue_2Block extends Auto_Methods {
                         turnEncoder(0.5, 76, "CC", 1);
                         straightDriveEncoder(0.7, 190, 1.75);
                         clamp("OPEN", 250);
-                        straightDriveEncoder(0.7, -207, 2);
+                        straightDriveEncoder(0.7, -217, 2);
                         turnEncoder(0.5, 72, "C", 1.75);
-                        straightDriveEncoder(0.5, 20,  2);
+                        straightDriveEncoder(0.4, 50,  2);
                         //turnEncoder(0.5,25,"CC",0.75);
                         turnClamp("PAR", 250);
                         clamp("CLOSE", 250);
@@ -70,41 +70,41 @@ public class Blue_2Block extends Auto_Methods {
                         turnEncoder(0.5, 78, "CC", 1);
                         straightDriveEncoder(0.7, 160, 2.25);
                         clamp("OPEN", 250);
-                        straightDriveEncoder(0.6, -235, 2.5);
+                        straightDriveEncoder(0.7, -235, 2.5);
                         turnEncoder(0.5, 76, "C", 1);
                         clamp("OPEN", 250);
-                        straightDriveEncoder(0.4, 18, 1.75);
+                        straightDriveEncoder(0.4, 30, 1.75);
                         clamp("CLOSE", 250);
-                        straightDriveEncoder(0.6, -20, 0.75);
-                        turnEncoder(0.5, 75, "CC", 1.5);
+                        straightDriveEncoder(0.6, -18, 0.75);
+                        turnEncoder(0.5, 78, "CC", 1.5);
                         straightDriveEncoder(0.7, 220, 2.25);
-                        straightDriveEncoder(.7, 18, 1.5);
+
                         clamp("OPEN", 250);
-                        straightDriveEncoder(.7, -45, 1.5);
+                        straightDriveEncoder(.7, -50, 1.5);
                     }
                     break;
                 case "BRIDGE":
                     if (!isStopRequested() && opModeIsActive()) {
                         straightDriveEncoder(0.2, -9, 0.75);
-                        strafeDriveEncoder(0.4, 34, "LEFT", .75);
+                        strafeDriveEncoder(0.4, 25, "LEFT", .75);
                         actuator.setPower(1);//TODO use method created
                         sleep(500);
                         actuator.setPower(0);
                         clamp("CLOSE", 250);
                         straightDriveEncoder(0.2, -30, 1);
-                        turnEncoder(.4, 84, "CC", 1);
-                        straightDriveEncoder(0.6, 130, 1.5);
+                        turnEncoder(.4, 82, "CC", 1);
+                        straightDriveEncoder(0.6, 129, 1.5);
                         clamp("OPEN", 250);
-                        straightDriveEncoder(.5, -205, 3);
-                        turnEncoder(0.5, 82, "C", 1);
+                        straightDriveEncoder(.5, -214, 3);
+                        turnEncoder(0.5, 80, "C", 1);
                         clamp("OPEN", 250);
-                        straightDriveEncoder(0.3, 52, 2.25);
+                        straightDriveEncoder(0.3, 42, 2.25);
                         clamp("CLOSE", 250);
-                        straightDriveEncoder(.5, -55, 1);
-                        turnEncoder(0.5, 85, "CC", 1);
-                        straightDriveEncoder(0.7, 215, 2);
+                        straightDriveEncoder(.5, -30, 1);
+                        turnEncoder(0.5, 76, "CC", 1);
+                        straightDriveEncoder(0.7, 200, 2);
                         clamp("OPEN", 250);
-                        straightDriveEncoder(0.4, -50, 1.75);
+                        straightDriveEncoder(0.4, -55, 1.75);
                     }
                     break;
             }
