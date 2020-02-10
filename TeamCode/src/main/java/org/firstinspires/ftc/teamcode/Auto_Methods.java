@@ -190,7 +190,7 @@ public abstract class Auto_Methods extends LinearOpMode {
                 .addData("r", "%.3f", colorsLeft.red)
                 .addData("g", "%.3f", colorsLeft.green)
                 .addData("b", "%.3f", colorsLeft.blue);
-
+        sleep(1000);
         colorsRight = colorSensorRight.getNormalizedColors();
         Color.colorToHSV(colorsRight.toColor(), hsvValuesRight);
         telemetry.addLine()
@@ -202,7 +202,7 @@ public abstract class Auto_Methods extends LinearOpMode {
                 .addData("r", "%.3f", colorsRight.red)
                 .addData("g", "%.3f", colorsRight.green)
                 .addData("b", "%.3f", colorsRight.blue);
-
+        sleep(1000);
         telemetry.update();
 //        }
 

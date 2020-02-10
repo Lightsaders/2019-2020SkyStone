@@ -61,7 +61,7 @@ public class Blue_2Block extends Auto_Methods {
                 case "MIDDLE":
                     if (!isStopRequested() && opModeIsActive()) {
                         straightDriveEncoder(0.2, -9, 0.75);
-                        strafeDriveEncoder(1, 10, "LEFT", 1.3);
+                        strafeDriveEncoder(1, 8, "LEFT", 1.3);
                         actuator.setPower(1);//TODO use method created however it requires encoders on actuator
                         sleep(500);
                         actuator.setPower(0);
@@ -75,7 +75,7 @@ public class Blue_2Block extends Auto_Methods {
                         clamp("OPEN", 250);
                         straightDriveEncoder(0.4, 30, 1.75);
                         clamp("CLOSE", 250);
-                        straightDriveEncoder(0.6, -18, 0.75);
+                        straightDriveEncoder(0.6, -22, 0.75);
                         turnEncoder(0.5, 78, "CC", 1.5);
                         straightDriveEncoder(0.7, 220, 2.25);
 
