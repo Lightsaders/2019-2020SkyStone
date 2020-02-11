@@ -28,9 +28,11 @@ public class Blue_2Block extends Auto_Methods {
             rightFoundation.setPosition(.9);
             sleep(1000);
             turnClamp("PAR", 700);
-            straightDriveEncoder(0.2, 90, 2.5);
+            straightDriveEncoder(0.2, 86.5, 2.2);
             skystoneColorScan("BLUE");
+            sleep(1000);
             telemetry.addLine("Skystone position: " + positionSkystone);
+            sleep(1000);
             telemetry.update();
             switch (positionSkystone) {
                 case "WALL":
@@ -45,15 +47,15 @@ public class Blue_2Block extends Auto_Methods {
                         turnEncoder(0.5, 76, "CC", 1);
                         straightDriveEncoder(0.7, 190, 1.75);
                         clamp("OPEN", 250);
-                        straightDriveEncoder(0.7, -217, 2);
-                        turnEncoder(0.5, 72, "C", 1.75);
-                        straightDriveEncoder(0.4, 50,  2);
+                        straightDriveEncoder(0.7, -130, 2);
+                        turnEncoder(0.5, 77, "C", 1.75);
+                        straightDriveEncoder(0.4, 20,  2);
                         //turnEncoder(0.5,25,"CC",0.75);
                         turnClamp("PAR", 250);
                         clamp("CLOSE", 250);
                         straightDriveEncoder(0.4, -10, 0.5);
-                        turnEncoder(0.5, 82, "CC", 1.75);
-                        straightDriveEncoder(0.7, 200, 2);
+                        turnEncoder(0.5, 80, "CC", 1.75);
+                        straightDriveEncoder(0.7, 120, 2);
                         clamp("OPEN", 250);
                         straightDriveEncoder(0.4, -38, 1);
                     }
