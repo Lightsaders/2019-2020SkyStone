@@ -154,8 +154,8 @@ public class teleOp extends LinearOpMode {
                 telemetry.addLine("DOWN");
                 telemetry.update();
             } else if (gamepad2.left_stick_y > 0 && opModeIsActive()) {
-                liftleft.setPower(gamepad2.left_stick_y * -0.95);
-                liftright.setPower(gamepad2.left_stick_y * -0.95);
+                liftleft.setPower(gamepad2.left_stick_y * -0.85);
+                liftright.setPower(gamepad2.left_stick_y * -0.85);
                 telemetry.addLine("UP");
                 telemetry.update();
             } else if (gamepad2.left_stick_y == 0 && opModeIsActive() && !limitSwitch.getState()) {
