@@ -88,7 +88,7 @@ public class teleop65 extends LinearOpMode {
         }
 
         while (opModeIsActive()) {
-            telemetry.addData("LEFT STICK Y",gamepad1.left_stick_y);
+            telemetry.addData("LEFT STICK Y",gamepad1.left_stick_y*-1);
             telemetry.addData("LEFT STICK X",gamepad1.left_stick_x);
             telemetry.addData("RIGHT STICK X",gamepad1.right_stick_x);
 
@@ -117,10 +117,12 @@ public class teleop65 extends LinearOpMode {
 
             if (gamepad2.right_bumper && opModeIsActive()) {
                 clamp.setPosition(.35);
+                telemetry.addLine("CLOSED");
 
             }
             if (gamepad2.left_bumper && opModeIsActive()) {
                 clamp.setPosition(.75);
+                telemetry.addLine("OPEN");
             }
 
             actuator.setPower(gamepad2.right_trigger);
