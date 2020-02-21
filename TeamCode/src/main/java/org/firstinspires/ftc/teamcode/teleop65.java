@@ -88,20 +88,26 @@ public class teleop65 extends LinearOpMode {
         }
 
         while (opModeIsActive()) {
+            telemetry.addData("LEFT STICK Y",gamepad1.left_stick_y);
+            telemetry.addData("LEFT STICK X",gamepad1.left_stick_x);
+            telemetry.addData("RIGHT STICK X",gamepad1.right_stick_x);
 
             //Gamepad 1 left joystick x strafe
             while ((Math.abs(gamepad1.left_stick_x) > 0.1 || Math.abs(gamepad1.left_stick_y) > 0.1 || Math.abs(gamepad1.right_stick_x) > 0.1) && gamepad1.left_bumper && opModeIsActive()) {
-                driveBackLeft.setPower(gamepad1.left_stick_y * 0.3 + gamepad1.left_stick_x * 0.3 + gamepad1.right_stick_x * -0.3);
-                driveFrontLeft.setPower(gamepad1.left_stick_y * 0.3 + gamepad1.left_stick_x * -0.3 + gamepad1.right_stick_x * -0.3);
-                driveFrontRight.setPower(gamepad1.left_stick_y * 0.3 + gamepad1.left_stick_x * 0.3 + gamepad1.right_stick_x * 0.3);
-                driveBackRight.setPower(gamepad1.left_stick_y * 0.3 + gamepad1.left_stick_x * -0.3 + gamepad1.right_stick_x * 0.3);
+                driveBackLeft.setPower(gamepad1.left_stick_y * 0.4 + gamepad1.left_stick_x * 0.4 + gamepad1.right_stick_x * -0.4);
+                driveFrontLeft.setPower(gamepad1.left_stick_y * 0.4 + gamepad1.left_stick_x * -0.4 + gamepad1.right_stick_x * -0.4);
+                driveFrontRight.setPower(gamepad1.left_stick_y * 0.4 + gamepad1.left_stick_x * 0.4 + gamepad1.right_stick_x * 0.4);
+                driveBackRight.setPower(gamepad1.left_stick_y * 0.4 + gamepad1.left_stick_x * -0.4 + gamepad1.right_stick_x * 0.4);
+                telemetry.addLine("SLOWMO");
             }
+
             //Gamepad 1 left joystick x strafe
             while ((Math.abs(gamepad1.left_stick_x) > 0.1 || Math.abs(gamepad1.left_stick_y) > 0.1 || Math.abs(gamepad1.right_stick_x) > 0.1) && !gamepad1.left_bumper && opModeIsActive()) {
-                driveBackLeft.setPower(gamepad1.left_stick_y * 0.65 + gamepad1.left_stick_x * 0.65 + gamepad1.right_stick_x * -0.65);
-                driveFrontLeft.setPower(gamepad1.left_stick_y * 0.65 + gamepad1.left_stick_x * -0.65 + gamepad1.right_stick_x * -0.65);
-                driveFrontRight.setPower(gamepad1.left_stick_y * 0.65 + gamepad1.left_stick_x * 0.65 + gamepad1.right_stick_x * 0.65);
-                driveBackRight.setPower(gamepad1.left_stick_y * 0.65 + gamepad1.left_stick_x * -0.65 + gamepad1.right_stick_x * 0.65);
+                driveBackLeft.setPower(gamepad1.left_stick_y * 0.7 + gamepad1.left_stick_x * 0.7 + gamepad1.right_stick_x * -0.7);
+                driveFrontLeft.setPower(gamepad1.left_stick_y * 0.7 + gamepad1.left_stick_x * -0.7 + gamepad1.right_stick_x * -0.7);
+                driveFrontRight.setPower(gamepad1.left_stick_y * 0.7 + gamepad1.left_stick_x * 0.7 + gamepad1.right_stick_x * 0.7);
+                driveBackRight.setPower(gamepad1.left_stick_y * 0.7 + gamepad1.left_stick_x * -0.7 + gamepad1.right_stick_x * 0.7);
+
             }
 
             driveBackLeft.setPower(0);
@@ -134,8 +140,8 @@ public class teleop65 extends LinearOpMode {
                 telemetry.addLine("DOWN");
                 telemetry.update();
             } else if (gamepad2.left_stick_y > 0 && opModeIsActive()) {
-                liftleft.setPower(gamepad2.left_stick_y * -0.9);
-                liftright.setPower(gamepad2.left_stick_y * -0.9);
+                liftleft.setPower(gamepad2.left_stick_y * -.85);
+                liftright.setPower(gamepad2.left_stick_y * -.85);
                 telemetry.addLine("UP");
                 telemetry.update();
             } else if (gamepad2.left_stick_y == 0 && opModeIsActive() && !limitSwitch.getState()) {
@@ -158,12 +164,13 @@ public class teleop65 extends LinearOpMode {
                 leftFoundation.setPosition(0.2);
                 rightFoundation.setPosition(.9);
             }
-            if (gamepad1.a && opModeIsActive()) {
+            if (gamepad1.a && !gamepad1.y && opModeIsActive()) {
                 teamMarker.setPosition(1);
 
-            } else {
+                }else{
                 teamMarker.setPosition(0.5);
             }
+
 
             idle();
         }

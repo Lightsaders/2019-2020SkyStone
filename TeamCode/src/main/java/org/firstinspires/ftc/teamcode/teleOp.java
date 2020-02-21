@@ -26,7 +26,7 @@ import org.firstinspires.ftc.robotcore.internal.system.Deadline;
 
 import java.util.concurrent.TimeUnit;
 
-
+@Disabled
 @TeleOp(name = "TeleOp", group = "TeleOp")
 
 public class teleOp extends LinearOpMode {
