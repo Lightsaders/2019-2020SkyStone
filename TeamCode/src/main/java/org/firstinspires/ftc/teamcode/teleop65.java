@@ -27,9 +27,9 @@ import org.firstinspires.ftc.robotcore.internal.system.Deadline;
 import java.util.concurrent.TimeUnit;
 
 
-@TeleOp(name = "TeleOp", group = "TeleOp")
+@TeleOp(name = "TeleOp65", group = "TeleOp")
 
-public class teleOp extends LinearOpMode {
+public class teleop65 extends LinearOpMode {
 
     private DcMotor driveFrontLeft;
     private DcMotor driveFrontRight;
@@ -48,9 +48,9 @@ public class teleOp extends LinearOpMode {
     double toggle;
 
 
+
     @Override
     public void runOpMode() throws InterruptedException {
-
 
 
         driveFrontLeft = hardwareMap.dcMotor.get("driveFrontLeft");
@@ -85,8 +85,6 @@ public class teleOp extends LinearOpMode {
             telemetry.update();
 
 
-
-
         }
 
         while (opModeIsActive()) {
@@ -100,10 +98,10 @@ public class teleOp extends LinearOpMode {
             }
             //Gamepad 1 left joystick x strafe
             while ((Math.abs(gamepad1.left_stick_x) > 0.1 || Math.abs(gamepad1.left_stick_y) > 0.1 || Math.abs(gamepad1.right_stick_x) > 0.1) && !gamepad1.left_bumper && opModeIsActive()) {
-                driveBackLeft.setPower(gamepad1.left_stick_y * 0.8 + gamepad1.left_stick_x * 0.8 + gamepad1.right_stick_x * -0.8);
-                driveFrontLeft.setPower(gamepad1.left_stick_y * 0.8 + gamepad1.left_stick_x * -0.8 + gamepad1.right_stick_x * -0.8);
-                driveFrontRight.setPower(gamepad1.left_stick_y * 0.8 + gamepad1.left_stick_x * 0.8 + gamepad1.right_stick_x * 0.8);
-                driveBackRight.setPower(gamepad1.left_stick_y * 0.8 + gamepad1.left_stick_x * -0.8 + gamepad1.right_stick_x * 0.8);
+                driveBackLeft.setPower(gamepad1.left_stick_y * 0.65 + gamepad1.left_stick_x * 0.65 + gamepad1.right_stick_x * -0.65);
+                driveFrontLeft.setPower(gamepad1.left_stick_y * 0.65 + gamepad1.left_stick_x * -0.65 + gamepad1.right_stick_x * -0.65);
+                driveFrontRight.setPower(gamepad1.left_stick_y * 0.65 + gamepad1.left_stick_x * 0.65 + gamepad1.right_stick_x * 0.65);
+                driveBackRight.setPower(gamepad1.left_stick_y * 0.65 + gamepad1.left_stick_x * -0.65 + gamepad1.right_stick_x * 0.65);
             }
 
             driveBackLeft.setPower(0);
@@ -136,8 +134,8 @@ public class teleOp extends LinearOpMode {
                 telemetry.addLine("DOWN");
                 telemetry.update();
             } else if (gamepad2.left_stick_y > 0 && opModeIsActive()) {
-                liftleft.setPower(gamepad2.left_stick_y * -0.85);
-                liftright.setPower(gamepad2.left_stick_y * -0.85);
+                liftleft.setPower(gamepad2.left_stick_y * -0.9);
+                liftright.setPower(gamepad2.left_stick_y * -0.9);
                 telemetry.addLine("UP");
                 telemetry.update();
             } else if (gamepad2.left_stick_y == 0 && opModeIsActive() && !limitSwitch.getState()) {
@@ -151,8 +149,8 @@ public class teleOp extends LinearOpMode {
                 liftleft.setPower(-0.18);
                 telemetry.addLine("HOLD");
                 telemetry.update();
-
             }
+
             if (gamepad2.x && opModeIsActive()) {
                 leftFoundation.setPosition(1);
                 rightFoundation.setPosition(0.15);
@@ -166,14 +164,10 @@ public class teleOp extends LinearOpMode {
             } else {
                 teamMarker.setPosition(0.5);
             }
-            if (gamepad2.y ) {
-                gamepad1.left_stick_y = 0;
-                gamepad1.right_stick_y = 0;
-                gamepad1.left_stick_x = 0;
-                gamepad1.right_stick_y = 0;
-            }
 
             idle();
         }
+
     }
 }
+
