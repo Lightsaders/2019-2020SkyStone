@@ -21,7 +21,7 @@ public class Blue_2Block extends Auto_Methods {
             turnClamp("PAR", 700);
             clamp("OPEN", 500);
             actuator.setPower(-1);
-            rotation.setPosition(.98);
+            rotation.setPosition(.54);
             sleep(500);
             actuator.setPower(0);
             clamp.setPosition(.8);

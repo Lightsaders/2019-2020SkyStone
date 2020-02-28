@@ -45,11 +45,6 @@ public class Last_Year_TELEOP extends LinearOpMode{
         driveFrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         driveBackLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         driveBackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        // Variables for choosing from the available sounds
-        int     soundIndex      = 0;
-        int     soundID         = -1;
-        boolean was_dpad_up     = false;
-        boolean was_dpad_down   = false;
 
         Context myApp = hardwareMap.appContext;
 
@@ -92,23 +87,9 @@ public class Last_Year_TELEOP extends LinearOpMode{
 //
 
             // Determine Resource IDs for the sounds you want to play, and make sure it's valid.
-            if (gamepad1.left_stick_y >0 && !soundPlaying) {
+
 
                 // Determine Resource IDs for the sounds you want to play, and make sure it's valid.
-                if ((soundID = myApp.getResources().getIdentifier(sounds[soundIndex], "raw", myApp.getPackageName())) != 0){
-
-                    // Signal that the sound is now playing.
-                    soundPlaying = true;
-
-                    // Start playing, and also Create a callback that will clear the playing flag when the sound is complete.
-                    SoundPlayer.getInstance().startPlaying(myApp, soundID, params, null,
-                            new Runnable() {
-                                public void run() {
-                                    soundPlaying = false;
-                                }} );
-                    sleep(7000);
-                }
-            }
             driveBackLeft.setPower(gamepad1.left_stick_y * toggle + gamepad1.left_stick_x *- toggle);
             driveFrontLeft.setPower(gamepad1.left_stick_y * -toggle + gamepad1.left_stick_x * -toggle);
             driveFrontRight.setPower(gamepad1.left_stick_y * toggle + gamepad1.left_stick_x * -toggle);

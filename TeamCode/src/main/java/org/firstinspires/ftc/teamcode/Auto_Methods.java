@@ -103,6 +103,8 @@ public abstract class Auto_Methods extends LinearOpMode {
         liftright = hardwareMap.dcMotor.get("liftright");
         liftleft = hardwareMap.dcMotor.get("liftleft");
 
+
+
         // Init Limit Switch
         limitSwitch = hardwareMap.get(DigitalChannel.class, "limitSwitch");
         limitSwitch.setMode(DigitalChannel.Mode.INPUT);
@@ -941,10 +943,10 @@ public abstract class Auto_Methods extends LinearOpMode {
     public void turnClamp(String position, int sleep) {
         switch (position) {
             case "PERP":
-                rotation.setPosition(.54);
+                rotation.setPosition(.9);
                 break;
             case "PAR":
-                rotation.setPosition(.9);
+                rotation.setPosition(.54);
                 break;
         }
         sleep(sleep);// This is to allow time for the servo to move
