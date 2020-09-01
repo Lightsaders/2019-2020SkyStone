@@ -31,17 +31,6 @@ public class Red_Foundation_Turn extends Auto_Methods {
 
         if (opModeIsActive() && !isStopRequested()) {
             strafeDriveEncoder(0.3, 10,  "RIGHT",2);
-            rightFoundation.setPosition(.4);
-            sleep(1000);
-            actuator.setPower(1);//TODO use method created however it requires encoders on actuator
-            sleep(300);
-            actuator.setPower(0);
-            turnClamp("PAR", 700);
-            clamp("OPEN", 500);
-            actuator.setPower(-1);//TODO use method created however it requires encoders on actuator
-            sleep(100);
-            actuator.setPower(0);
-            rightFoundation.setPosition(.8);
             turnClamp("PAR", 250);
             clamp("OPEN", 250);
             gyroDrive(.2, 88, 0,2);

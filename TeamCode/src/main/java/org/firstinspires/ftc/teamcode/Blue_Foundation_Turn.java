@@ -29,30 +29,21 @@ public class Blue_Foundation_Turn extends Auto_Methods{
         waitForStart();
 
         if (opModeIsActive() && !isStopRequested()) {
-            strafeDriveEncoder(0.3, 10,  "LEFT",2);
-            rightFoundation.setPosition(.4);
-            sleep(1000);
-            actuator.setPower(1);//TODO use method created however it requires encoders on actuator
-            sleep(300);
-            actuator.setPower(0);
+            strafeDriveEncoder(0.3, 10,  "LEFT",1);
+
             turnClamp("PAR", 700);
             clamp("OPEN", 500);
-            actuator.setPower(-1);//TODO use method created however it requires encoders on actuator
-            sleep(100);
-            actuator.setPower(0);
-            rightFoundation.setPosition(.8);
-            turnClamp("PAR", 250);
-            clamp("OPEN", 250);
+
             gyroDrive(.2, 88, 0,2);
             leftFoundation.setPosition(1);
             rightFoundation.setPosition(0.1);
             sleep(1600);
-            turnEncoder(0.6,55,"CC", 2);
+            turnEncoder(0.7,55,"CC", 2);
             straightDriveEncoder(0.6,-30,2);
             leftFoundation.setPosition(1);
             rightFoundation.setPosition(0.1);
-            turnEncoder(0.6,75,"CC",2);
-            straightDriveEncoder(.5,80,3);
+            turnEncoder(0.7,75,"CC",2);
+            straightDriveEncoder(.6,80,3);
             leftFoundation.setPosition(0.2);
             rightFoundation.setPosition(.9);
             sleep(1500);

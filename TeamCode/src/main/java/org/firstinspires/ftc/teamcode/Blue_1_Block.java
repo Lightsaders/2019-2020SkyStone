@@ -73,11 +73,11 @@ public class Blue_1_Block extends Auto_Methods {
                 rightFoundation.setPosition(.9);
                 strafeDriveEncoder(.5,50,"RIGHT",3);
                 turnEncoder(.5,78,"C",1);
-                liftleft.setPower( -.65);
-                liftright.setPower( .65);
+                liftleft.setPower( .65);
+                liftright.setPower(- .65);
                 sleep(900);
-                liftleft.setPower( -0.16);
-                liftright.setPower( -0.16);
+                liftleft.setPower( 0);
+                liftright.setPower( 0);
                 straightDriveEncoder(.3,55,1);
 
 
@@ -123,11 +123,11 @@ public class Blue_1_Block extends Auto_Methods {
                 rightFoundation.setPosition(.9);
                 strafeDriveEncoder(.5,50,"RIGHT",3);
                 turnEncoder(.5,78,"C",1);
-                liftleft.setPower( -.65);
-                liftright.setPower( .65);
+                liftleft.setPower( .65);
+                liftright.setPower(- .65);
                 sleep(900);
-                liftleft.setPower( -0.16);
-                liftright.setPower( -0.16);
+                liftleft.setPower( 0);
+                liftright.setPower( 0);
                 straightDriveEncoder(.3,55,1);
 
 
@@ -137,7 +137,7 @@ public class Blue_1_Block extends Auto_Methods {
         case "BRIDGE":
             if (!isStopRequested() && opModeIsActive()) {
                 straightDriveEncoder(0.2, -9, 0.75);
-                strafeDriveEncoder(0.4, 25, "LEFT", .75);
+                strafeDriveEncoder(0.4, 20, "LEFT", .75);
                 actuator.setPower(1);//TODO use method created
                 sleep(500);
                 actuator.setPower(0);
@@ -173,11 +173,11 @@ public class Blue_1_Block extends Auto_Methods {
                 rightFoundation.setPosition(.9);
                 strafeDriveEncoder(.5,50,"RIGHT",3);
                 turnEncoder(.5,78,"C",1);
-                liftleft.setPower( -.65);
-                liftright.setPower( .65);
+                liftleft.setPower( .65);
+                liftright.setPower(- .65);
                 sleep(900);
-                liftleft.setPower( -0.16);
-                liftright.setPower( -0.16);
+                liftleft.setPower( 0);
+                liftright.setPower( 0);
                 straightDriveEncoder(.3,55,1);
 
 

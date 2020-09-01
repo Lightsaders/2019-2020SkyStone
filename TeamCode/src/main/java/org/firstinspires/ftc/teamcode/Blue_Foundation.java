@@ -28,7 +28,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
             waitForStart();
 
             if (opModeIsActive() && !isStopRequested()) {
-                strafeDriveEncoder(0.3, 29,  "LEFT",2);
+                strafeDriveEncoder(0.3, 19,  "LEFT",2);
                 rightFoundation.setPosition(.4);
                 sleep(1000);
                 actuator.setPower(1);//TODO use method created however it requires encoders on actuator
@@ -41,7 +41,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
                 actuator.setPower(0);
                 rightFoundation.setPosition(.8);
                 turnClamp("PAR", 250);
-                clamp("OPEN", 250);
+                clamp.setPosition(.75);
                 gyroDrive(.2, 88, 0,2);
                 leftFoundation.setPosition(1);
                 rightFoundation.setPosition(0.15);

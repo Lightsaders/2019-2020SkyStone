@@ -1,21 +1,19 @@
 package org.firstinspires.ftc.teamcode;
-
 import android.content.Context;
 
 import com.qualcomm.ftccommon.SoundPlayer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
-@Autonomous(name = "RED_FOUNDATION_GRAB")
-public class RED_Foundation extends Auto_Methods{
+@Disabled
+@Autonomous(name = "Red_FoundationSGCS")
+public class Red_FoundationSGCS extends Auto_Methods {
     String  sounds[] =  { "ss_wookie" };
 
     boolean soundPlaying = false;
+
     @Override
     public void runOpMode() throws InterruptedException {
-
-        // init robot
-        initCompBot();
-        // Variables for choosing from the available sounds
         int     soundIndex      = 0;
         int     soundID         = -1;
         boolean was_dpad_up     = false;
@@ -28,25 +26,37 @@ public class RED_Foundation extends Auto_Methods{
         params.loopControl = 0;
         params.waitForNonLoopingSoundsToFinish = true;
 
+        // init robot
+        initCompBot();
         waitForStart();
 
         if (opModeIsActive() && !isStopRequested()) {
-            strafeDriveEncoder(0.3, 10,  "RIGHT",1);
-
-            turnClamp("PAR", 250);
+            strafeDriveEncoder(0.3, 13,  "RIGhT",1);
             clamp.setPosition(.75);
             gyroDrive(.2, 92, 0,2);
             leftFoundation.setPosition(1);
             rightFoundation.setPosition(0.15);
             sleep(1600);
-            gyroDrive(.4, -94, 0,2);
+            gyroDrive(.5, -154, 0,4);
             leftFoundation.setPosition(0.2);
             rightFoundation.setPosition(.9);
-            sleep(11500);
-            strafeDriveEncoder(.5,60,"LEFT",2);
+            liftleft.setPower( -.65);
+            liftright.setPower( .65);
+            sleep(2000);
+            liftleft.setPower( -0.16);
+            liftright.setPower( 0.16);
+            sleep(10500);
+
+            strafeDriveEncoder(.4,60,"LEFT",2);
             straightDriveEncoder(.3,-15,1);
             clamp("CLOSE", 700);
-            strafeDriveEncoder(.5,30,"LEFT",3);
+            liftleft.setPower( .05);
+            liftright.setPower(- .05);
+            sleep(2000);
+            liftleft.setPower( 0);
+            liftright.setPower( 0);
+            clamp("CLOSE", 700);
+            strafeDriveEncoder(.5,40,"LEFT",3);
             if ((soundID = myApp.getResources().getIdentifier(sounds[soundIndex], "raw", myApp.getPackageName())) != 0){
 
                 // Signal that the sound is now playing.

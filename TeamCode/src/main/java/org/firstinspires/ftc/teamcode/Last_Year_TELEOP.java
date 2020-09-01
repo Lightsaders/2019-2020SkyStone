@@ -29,7 +29,7 @@ public class Last_Year_TELEOP extends LinearOpMode{
     private DcMotor driveBackLeft;
     private DcMotor driveBackRight;
     private double toggle;
-
+    private Servo clamp;
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -38,20 +38,18 @@ public class Last_Year_TELEOP extends LinearOpMode{
         driveBackLeft = hardwareMap.dcMotor.get("driveBackLeft");
         driveBackRight = hardwareMap.dcMotor.get("driveBackRight");
 
-        driveFrontRight.setDirection(DcMotor.Direction.REVERSE);
-        driveBackRight.setDirection(DcMotor.Direction.REVERSE);
+        driveFrontLeft.setDirection(DcMotor.Direction.REVERSE);
+        driveBackLeft.setDirection(DcMotor.Direction.REVERSE);
 
         driveFrontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         driveFrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         driveBackLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         driveBackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+       clamp = hardwareMap.servo.get("clamp");
 
-        Context myApp = hardwareMap.appContext;
 
-        // create a sound parameter that holds the desired player parameters.
-        SoundPlayer.PlaySoundParams params = new SoundPlayer.PlaySoundParams();
-        params.loopControl = 0;
-        params.waitForNonLoopingSoundsToFinish = true;
+
+
         toggle = 0.8;
 
         //waitForStart();
@@ -95,10 +93,10 @@ public class Last_Year_TELEOP extends LinearOpMode{
             driveFrontRight.setPower(gamepad1.left_stick_y * toggle + gamepad1.left_stick_x * -toggle);
             driveBackRight.setPower(gamepad1.left_stick_y * -toggle + gamepad1.left_stick_x * -toggle);
             // RIGHT STICK X - TURN CLOCKWISE AND COUNTERCLOCKWISE
-            driveFrontLeft.setPower(gamepad1.right_stick_x * -toggle);
-            driveBackLeft.setPower(gamepad1.right_stick_x * -toggle);
-            driveFrontRight.setPower(gamepad1.right_stick_x * toggle);
-            driveBackRight.setPower(gamepad1.right_stick_x * toggle);
+            driveFrontLeft.setPower(gamepad1.right_stick_x * toggle);
+            driveBackLeft.setPower(gamepad1.right_stick_x * toggle);
+            driveFrontRight.setPower(gamepad1.right_stick_x * -toggle);
+            driveBackRight.setPower(gamepad1.right_stick_x * -toggle);
 
             if(gamepad1.x){
                 toggle = 1;
@@ -109,7 +107,12 @@ public class Last_Year_TELEOP extends LinearOpMode{
             if(gamepad1.b){
                 toggle = 0.5;
             }
-
+            if (gamepad1.dpad_left){
+                clamp.setPosition(.68);
+            }
+            if (gamepad1.dpad_right){
+                clamp.setPosition(.48);
+            }
             telemetry.addData("SPEED", + toggle);
             telemetry.update();
 

@@ -96,11 +96,11 @@ public class Red1Block extends Auto_Methods{
                         rightFoundation.setPosition(.9);
                         strafeDriveEncoder(.5,50,"LEFT",3);
                         turnEncoder(.5,78,"CC",1);
-                        liftleft.setPower( -.65);
-                        liftright.setPower( .65);
+                        liftleft.setPower( .65);
+                        liftright.setPower(- .65);
                         sleep(900);
-                        liftleft.setPower( -0.16);
-                        liftright.setPower( -0.16);
+                        liftleft.setPower( 0);
+                        liftright.setPower( 0);
                         straightDriveEncoder(.3,55,1);
 
 
@@ -146,11 +146,11 @@ public class Red1Block extends Auto_Methods{
                         rightFoundation.setPosition(.9);
                         strafeDriveEncoder(.5,50,"LEFT",3);
                         turnEncoder(.5,78,"CC",1);
-                        liftleft.setPower( -.65);
-                        liftright.setPower( .65);
+                        liftleft.setPower( .65);
+                        liftright.setPower(- .65);
                         sleep(900);
-                        liftleft.setPower( -0.16);
-                        liftright.setPower( -0.16);
+                        liftleft.setPower( 0);
+                        liftright.setPower( 0);
                         straightDriveEncoder(.3,55,1);
 
 
@@ -160,7 +160,7 @@ public class Red1Block extends Auto_Methods{
                 case "BRIDGE":
                     if (!isStopRequested() && opModeIsActive()) {
                         straightDriveEncoder(0.2, -9, 0.75);
-                        strafeDriveEncoder(0.4, 25, "RIGHT", .75);
+                        strafeDriveEncoder(0.4, 20, "RIGHT", .75);
                         actuator.setPower(1);//TODO use method created
                         sleep(500);
                         actuator.setPower(0);
@@ -196,11 +196,12 @@ public class Red1Block extends Auto_Methods{
                         rightFoundation.setPosition(.9);
                         strafeDriveEncoder(.5,50,"LEFT",3);
                         turnEncoder(.5,78,"CC",1);
-                        liftleft.setPower( -.65);
-                        liftright.setPower( .65);
+                        liftleft.setPower( .65);
+                        liftright.setPower(- .65);
                         sleep(900);
-                        liftleft.setPower( -0.16);
-                        liftright.setPower( -0.16);
+                        liftleft.setPower( 0);
+                        liftright.setPower( 0);
+
                         straightDriveEncoder(.3,55,1);
 
 
