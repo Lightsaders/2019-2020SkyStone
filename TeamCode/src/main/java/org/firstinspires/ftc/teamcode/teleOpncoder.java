@@ -96,9 +96,9 @@ public class teleOpncoder extends LinearOpMode {
                 telemetry.addData("Left Rear DRIVING TO: %7d ", LeftRear.getCurrentPosition());
                 telemetry.addData("Right Rear DRIVING TO: %7d ", RightRear.getCurrentPosition()*-1);
                 telemetry.update();
+
                 LeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
                 LeftRear.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
                 RightRear.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             }
 

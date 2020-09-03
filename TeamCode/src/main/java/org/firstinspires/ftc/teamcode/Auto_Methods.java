@@ -431,6 +431,17 @@ public abstract class Auto_Methods extends LinearOpMode {
                     (getRuntime() <= end) &&
                     (driveFrontLeft.isBusy() || driveFrontRight.isBusy() || driveBackLeft.isBusy() || driveBackRight.isBusy())) {
 
+
+                //TODO this is where you can correct the robot while its driving
+                /*
+                Use parallel encoder to the direction in which your traveling
+                if(parallel encoder > 0){
+                    // this means that the heading has drifted c
+                }else if(parallel encoder < 0){
+                // this means that the heading has drifted cc
+                }
+                 */
+
                 // Display it for the driver.
                 telemetry.addData("RUN TIME CURRENT: ", "" + getRuntime());
                 telemetry.addData("RUN TIME END: ", "" + end);

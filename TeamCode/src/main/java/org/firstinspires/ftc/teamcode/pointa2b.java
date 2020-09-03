@@ -16,7 +16,7 @@ public class pointa2b extends LinearOpMode {
     double DRIVE_GEAR_REDUCTION = 1;    // 1:1
     double WHEEL_DIAMETER_CM = 2;     // mecanum wheels
 
-    double COUNTS_PER_CM_GOBUILDA = ((COUNTS_PER_MOTOR_GOBUILDA * DRIVE_GEAR_REDUCTION ) / (WHEEL_DIAMETER_CM * Math.PI)) / 2;
+    double COUNTS_PER_CM_GOBUILDA = ((COUNTS_PER_MOTOR_GOBUILDA * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_CM * Math.PI)) / 2;
 
     @Override
     public void runOpMode() {
@@ -34,18 +34,16 @@ public class pointa2b extends LinearOpMode {
             telemetry.update();
 
 
-
-
         }
         while (opModeIsActive()) {
-            straightDriveEncoder(0.5,10,4);
+            straightDriveEncoder(0.5, 1, 4);
         }
     }
 
     public void straightDriveEncoder(double speed, double distanceCM, double timeCutOff) {
         int frontLeftTarget;
-        int horizonaltarget;
-        int frontRightTarget;
+        int frontRightTarget ;
+        int backLeftTarget ;
         int backRightTarget;
         double end = 0;
         double t = 0;
@@ -59,32 +57,32 @@ public class pointa2b extends LinearOpMode {
 
             LeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             LeftRear.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
             RightRear.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             LeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             LeftRear.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
             RightRear.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            RightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
             // Determine new target position, and pass to motor controller
-            frontLeftTarget = LeftFront.getCurrentPosition() + (int) (distanceCM * COUNTS_PER_CM_GOBUILDA);
-
+            frontLeftTarget = LeftRear.getCurrentPosition() + (int) (distanceCM * COUNTS_PER_CM_GOBUILDA);
             backRightTarget = RightRear.getCurrentPosition() + (int) (distanceCM * COUNTS_PER_CM_GOBUILDA);
 
             // set target position to each motor
-            LeftFront.setTargetPosition(frontLeftTarget);
 
+            LeftRear.setTargetPosition(frontLeftTarget);
             RightRear.setTargetPosition(backRightTarget);
 
             // Turn on run to position
-            LeftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            RightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
             LeftRear.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             RightRear.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+           // check this part!!!
 
-            LeftFront.setPower(Math.abs(speed));
-            RightFront.setPower(Math.abs(speed));
+            double left_power= LeftRear.getPower();
+            double right_power= RightRear.getPower();
+            LeftFront.setPower(left_power);
+            RightFront.setPower(right_power);
             LeftRear.setPower(Math.abs(speed));
             RightRear.setPower(Math.abs(speed));
 
@@ -94,7 +92,7 @@ public class pointa2b extends LinearOpMode {
             while (opModeIsActive() && !isStopRequested() &&
                     (getRuntime() <= end) &&
                     (LeftFront.isBusy() || RightFront.isBusy() || LeftRear.isBusy() || RightRear.isBusy())) {
-
+                //TODO adding encoder counts to correct straightness
                 // Display it for the driver.
                 telemetry.addData("RUN TIME CURRENT: ", "" + getRuntime());
                 telemetry.addData("RUN TIME END: ", "" + end);
@@ -102,7 +100,10 @@ public class pointa2b extends LinearOpMode {
 
                 telemetry.addData("BACK RIGHT MOTOR", "DRIVING TO: %7d CURRENTLY AT: %7d", backRightTarget, RightRear.getCurrentPosition());
                 telemetry.update();
-
+                double left_powerduring= LeftRear.getPower();
+                double right_powerduring= RightRear.getPower();
+                LeftFront.setPower(left_powerduring);
+                RightFront.setPower(right_powerduring);
             }
 
             telemetry.clearAll();
