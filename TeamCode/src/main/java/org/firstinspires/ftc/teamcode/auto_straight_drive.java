@@ -66,7 +66,7 @@ public class auto_straight_drive extends LinearOpMode {
                     telemetry.addLine("50-200");
                     telemetry.addData("right side speed",motorspeed+0.02);
                     telemetry.update();
-                    Log.("FTC ROBOT",str(LeftFront.getPower()));
+                //    Log.("FTC ROBOT",str(LeftFront.getPower()));
                     sleep(1750);
                 } else if (x < -6500 && x > -2000) {
                     LeftFront.setPower(motorspeed);
